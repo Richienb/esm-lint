@@ -1,33 +1,57 @@
 {
-    "name": "the-module",
-    "version": "0.0.0",
-    "description": "My awesome module.",
-    "repository": "https://github.com/Richienb/the-module.git",
-    "author": "Richie Bendall <richiebendall@gmail.com>",
-    "license": "MIT",
-    "main": "index.js",
-    "files": [
-        "index.js",
-        "index.d.ts"
-    ],
-    "engines": {
-        "node": ">=8"
-    },
-    "scripts": {
-        "lint": "xo",
-        "test": "yarn lint && ava"
-    },
-    "keywords": [],
-    "dependencies": {},
-    "devDependencies": {
-        "ava": "^2.4.0",
-        "eslint-config-richienb": "^0.3.0",
-        "xo": "^0.25.3"
-    },
-    "resolutions": {
-        "eslint": "^6.8.0"
-    },
-    "xo": {
-        "extends": "richienb/node"
-    }
+	"name": "the-module",
+	"version": "0.0.0",
+	"description": "My awesome module.",
+	"repository": "https://github.com/Richienb/the-module.git",
+	"author": "Richie Bendall <richiebendall@gmail.com>",
+	"license": "MIT",
+	"main": "index.js",
+	"bin": {
+		"esm-lint": "./cli.js"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts",
+		"lib/**/*",
+		"utils/**/*",
+		"cli.js"
+	],
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"lint": "xo",
+		"test": "yarn lint && ava"
+	},
+	"keywords": [],
+	"dependencies": {
+		"@rollup/plugin-node-resolve": "^7.0.0",
+		"command-exists": "^1.2.8",
+		"execa": "^4.0.0",
+		"fs-extra": "^8.1.0",
+		"has-yarn": "^2.1.0",
+		"listr": "^0.14.3",
+		"meow": "^6.0.0",
+		"npm-packlist": "^2.0.3",
+		"ow": "^0.15.0",
+		"p-each-series": "^2.1.0",
+		"parcel-bundler": "^1.12.4",
+		"pify": "^4.0.1",
+		"rollup": "^1.29.0",
+		"snowpack": "^1.0.5",
+		"tempy": "^0.3.0",
+		"typescript": "^3.7.5",
+		"webpack": "^4.41.5"
+	},
+	"devDependencies": {
+		"ava": "^2.4.0",
+		"eslint-config-richienb": "^0.3.0",
+		"xo": "^0.25.3"
+	},
+	"resolutions": {
+		"eslint": "^6.8.0"
+	},
+	"xo": {
+		"extends": "richienb/node"
+	}
 }
