@@ -11,7 +11,8 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}\\test\\debug.js"
+			"preLaunchTask": "npm: tsc",
+			"program": "${workspaceFolder}\\dist\\test\\debug.js"
 		}
 	]
 }

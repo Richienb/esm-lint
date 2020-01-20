@@ -1,6 +1,6 @@
-const ts = require("typescript")
+import ts from "typescript"
 
-module.exports = async ({ scriptFile }) => {
+export = async ({ scriptFile }: { scriptFile: string }) => {
 	ts.createProgram([scriptFile], {
 		noEmitOnError: true,
 		noImplicitAny: true,

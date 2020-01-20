@@ -5,28 +5,30 @@
 	"repository": "https://github.com/Richienb/the-module.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"bin": {
 		"esm-lint": "./cli.js"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts",
-		"lib/**/*",
-		"utils/**/*",
-		"cli.js"
+		"src/**/*",
+		"dist/**/*"
 	],
 	"engines": {
-		"node": ">=8"
+		"node": ">=10"
 	},
 	"scripts": {
+		"docs": "typedoc",
+		"build": "tsc && yarn docs",
+		"dev": "yarn tsc --watch",
 		"lint": "xo",
-		"test": "yarn lint && ava"
+		"test": "yarn lint && ava",
+		"tsc": "tsc"
 	},
 	"keywords": [],
 	"dependencies": {
 		"@rollup/plugin-node-resolve": "^7.0.0",
 		"command-exists": "^1.2.8",
+		"cross-exit": "^1.0.0",
 		"execa": "^4.0.0",
 		"fs-extra": "^8.1.0",
 		"has-yarn": "^2.1.0",
@@ -37,6 +39,8 @@
 		"p-each-series": "^2.1.0",
 		"parcel-bundler": "^1.12.4",
 		"pify": "^4.0.1",
+		"pretty-error": "^2.1.1",
+		"pretty-error-themes": "^1.0.0",
 		"rollup": "^1.29.0",
 		"snowpack": "^1.0.5",
 		"tempy": "^0.3.0",
@@ -44,14 +48,31 @@
 		"webpack": "^4.41.5"
 	},
 	"devDependencies": {
+		"@types/command-exists": "^1.2.0",
+		"@types/fs-extra": "^8.0.1",
+		"@types/listr": "^0.14.2",
+		"@types/npm-packlist": "^1.1.1",
+		"@types/parcel-bundler": "^1.12.1",
+		"@types/pify": "^3.0.2",
+		"@types/webpack": "^4.41.2",
 		"ava": "^2.4.0",
 		"eslint-config-richienb": "^0.3.0",
+		"typedoc": "^0.16.7",
 		"xo": "^0.25.3"
 	},
 	"resolutions": {
 		"eslint": "^6.8.0"
 	},
 	"xo": {
-		"extends": "richienb/node"
+		"extends": "richienb/ts"
+	},
+	"ava": {
+		"compileEnhancements": false,
+		"extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		]
 	}
 }
