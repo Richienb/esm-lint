@@ -1,5 +1,5 @@
-import test from "ava"
-import theModule from "."
+const test = require("ava")
+const theModule = require("./src/index.ts")
 
 test("main", (t) => {
 	t.throws(() => {

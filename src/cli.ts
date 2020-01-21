@@ -5,12 +5,11 @@
 import path from "path"
 import meow from "meow"
 import Listr from "listr"
-import splitString from "split-string"
 
 import setup from "./lib/setup"
 import cleanup from "./lib/cleanup"
 
-import pens from "./utils/pens"
+import prettyThrow from "pretty-throw"
 
 module.exports = (async () => {
 	const { input: args } = meow(`
@@ -63,5 +62,5 @@ module.exports = (async () => {
 			title: 'Cleanup',
 			task: () => cleanup({ dir: data.dir })
 		}
-	]).run().catch(pens);
+	]).run().catch(prettyThrow);
 })()
